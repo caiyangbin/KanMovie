@@ -38,6 +38,8 @@ dependencies {
     implementation buildLibs.appcompat
     implementation buildLibs.core_ktx
     implementation buildLibs.koin
+    implementation buildLibs.koinAndroidxViewmodel
+    implementation buildLibs.koinAndroidxExt
     implementation buildLibs.ankoCommons
     implementation buildLibs.ankoSqlite
     implementation buildLibs.recyclerview
@@ -46,4 +48,6 @@ dependencies {
     kapt buildLibs.arouterCompiler
 
     implementation project(':libres')
+    implementation project(':libutils')
+    implementation project(':libnet')
 }
