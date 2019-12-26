@@ -8,7 +8,8 @@ import java.io.PrintWriter
 /** {0}-高度 {1}-宽度 */
 private const val VALUE_TEMPLATE = "values-{0}x{1}"
 /** 可自由添加分辨率 */
-private const val SUPPORT_DIMESION = "1920,1080;2560,1440;3840,2160;1280,720;"
+//private const val SUPPORT_DIMESION = "1920,1080;2560,1440;3840,2160;1280,720;"
+private const val SUPPORT_DIMESION = "320,480;480,800;480,854;540,960;600,1024;720,1184;720,1196;720,1280;768,1024;800,1280;1080,1812;1080,1920;1440,2560;"
 
 /**
  * 适配不同分辨率values-dimens的工具类
