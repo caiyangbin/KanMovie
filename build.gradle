@@ -1,0 +1,30 @@
+apply from: this.file('global.gradle')
+apply plugin: 'com.alibaba.arouter'
+
+buildscript {
+    ext.gradle_version = '3.3.0'
+    ext.kotlin_version = '1.3.50'
+    ext.arouterRegister = '1.0.2'
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //实现路由表的自动加载
+        classpath "com.alibaba:arouter-register:$arouterRegister"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

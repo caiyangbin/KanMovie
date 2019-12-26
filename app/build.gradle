@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+def buildConfig = rootProject.ext.android
+def buildLibs = rootProject.ext.depsLibs
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+android {
+    compileSdkVersion buildConfig.compileSdkVersion
+    buildToolsVersion buildConfig.buildToolsVersion
+    defaultConfig {
+        applicationId buildConfig.applicationId
+        minSdkVersion buildConfig.minSdkVersion
+        targetSdkVersion buildConfig.targetSdkVersion
+        versionCode buildConfig.versionCode
+        versionName buildConfig.versionName
+        multiDexEnabled buildConfig.multiDexEnabled
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation buildLibs.kotlin
+    implementation buildLibs.appcompat
+    implementation buildLibs.core_ktx
+    implementation buildLibs.koin
+    implementation buildLibs.ankoCommons
+    implementation buildLibs.ankoSqlite
+    implementation buildLibs.recyclerview
+
+    implementation buildLibs.arouter
+    kapt buildLibs.arouterCompiler
+
+    implementation project(':libres')
+}
