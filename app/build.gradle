@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 def buildConfig = rootProject.ext.android
-def buildLibs = rootProject.ext.depsLibs
+def buildLibs = rootProject.ext
 
 kapt {
     arguments {
@@ -38,14 +38,20 @@ dependencies {
     implementation buildLibs.appcompat
     implementation buildLibs.core_ktx
     implementation buildLibs.koin
-    implementation buildLibs.koinAndroidxViewmodel
-    implementation buildLibs.koinAndroidxExt
-    implementation buildLibs.ankoCommons
-    implementation buildLibs.ankoSqlite
+    implementation buildLibs.koin_androidx_viewmodel
+    implementation buildLibs.koin_androidx_ext
+    implementation buildLibs.anko_commons
+    implementation buildLibs.anko_sqlite
     implementation buildLibs.recyclerview
 
     implementation buildLibs.arouter
-    kapt buildLibs.arouterCompiler
+    kapt buildLibs.arouter_compiler
+
+    implementation buildLibs.room_runtime
+    implementation buildLibs.room_ktx
+    kapt buildLibs.room_compiler
+
+    implementation buildLibs.lifecycle_viewmodel_ktx
 
     implementation project(':libres')
     implementation project(':libutils')

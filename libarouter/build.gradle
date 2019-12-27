@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 def buildConfig = rootProject.ext.android
-def buildLibs = rootProject.ext.depsLibs
+def buildLibs = rootProject.ext
 
 kapt {
     arguments {
@@ -45,6 +45,6 @@ dependencies {
     //占位主工程，只需要编译
     compileOnly buildLibs.kotlin
     compileOnly buildLibs.arouter
-    kapt buildLibs.arouterCompiler
+    kapt buildLibs.arouter_compiler
 
 }

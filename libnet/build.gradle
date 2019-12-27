@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 def buildConfig = rootProject.ext.android
-def buildLibs = rootProject.ext.depsLibs
+def buildLibs = rootProject.ext
 
 android {
     compileSdkVersion buildConfig.compileSdkVersion
@@ -36,7 +36,7 @@ dependencies {
     compileOnly buildLibs.kotlin
     //使用api，可以让依赖此module的工程使用此三方库
     api buildLibs.retrofit
-    api buildLibs.gsonConverter
-    api buildLibs.coroutinesAdapter
-    api buildLibs.loggingInterceptor
+    api buildLibs.gson_converter
+    api buildLibs.coroutines_adapter
+    api buildLibs.logging_interceptor
 }

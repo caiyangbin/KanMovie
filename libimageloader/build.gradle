@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 def buildConfig = rootProject.ext.android
-def buildLibs = rootProject.ext.depsLibs
+def buildLibs = rootProject.ext
 
 android {
     compileSdkVersion buildConfig.compileSdkVersion
@@ -35,5 +35,5 @@ dependencies {
     compileOnly buildLibs.kotlin
 
     implementation buildLibs.glide
-    kapt buildLibs.glideCompiler
+    kapt buildLibs.glide_compiler
 }

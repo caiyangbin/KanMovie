@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 def buildConfig = rootProject.ext.android
-def buildLibs = rootProject.ext.depsLibs
+def buildLibs = rootProject.ext
 
 android {
     compileSdkVersion buildConfig.compileSdkVersion
