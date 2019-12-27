@@ -33,27 +33,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation buildLibs.kotlin
-    implementation buildLibs.appcompat
-    implementation buildLibs.core_ktx
-    implementation buildLibs.koin
-    implementation buildLibs.koin_androidx_viewmodel
-    implementation buildLibs.koin_androidx_ext
-    implementation buildLibs.anko_commons
-    implementation buildLibs.anko_sqlite
-    implementation buildLibs.recyclerview
-
-    implementation buildLibs.arouter
-    kapt buildLibs.arouter_compiler
-
-    implementation buildLibs.room_runtime
-    implementation buildLibs.room_ktx
-    kapt buildLibs.room_compiler
-
-    implementation buildLibs.lifecycle_viewmodel_ktx
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support.test:runner:1.0.2'
+    implementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation project(':libres')
-    implementation project(':libutils')
-    implementation project(':libnet')
+    implementation project(':libcommon')
+    implementation project(':libcommonui')
 }

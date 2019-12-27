@@ -6,6 +6,12 @@ apply plugin: 'kotlin-kapt'
 def buildConfig = rootProject.ext.android
 def buildLibs = rootProject.ext
 
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
 android {
     compileSdkVersion buildConfig.compileSdkVersion
     buildToolsVersion buildConfig.buildToolsVersion
@@ -28,9 +34,46 @@ android {
 }
 
 dependencies {
-    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    compileOnly 'com.android.support.test:runner:1.0.2'
-    compileOnly 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compileOnly buildLibs.kotlin
+    implementation 'com.android.support.test:runner:1.0.2'
+    implementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //使用api，可以让依赖此module的工程使用此三方库
+    //网络请求
+    api buildLibs.retrofit
+    api buildLibs.gson_converter
+    api buildLibs.coroutines_adapter
+    api buildLibs.logging_interceptor
+    api buildLibs.gson
+
+    //arouter
+    api buildLibs.arouter
+    kapt buildLibs.arouter_compiler
+
+    //kotlin
+    api buildLibs.kotlin
+    api buildLibs.anko_commons
+    api buildLibs.anko_sqlite
+
+    //ui
+    api buildLibs.appcompat
+    api buildLibs.recyclerview
+
+    //jetpack
+    api buildLibs.core_ktx
+    api buildLibs.lifecycle_viewmodel_ktx
+    api buildLibs.room_runtime
+    api buildLibs.room_ktx
+    kapt buildLibs.room_compiler
+
+    //koin
+    api buildLibs.koin
+    api buildLibs.koin_androidx_viewmodel
+    api buildLibs.koin_androidx_ext
+
+    //图片显示
+    api buildLibs.glide
+    kapt buildLibs.glide_compiler
 }

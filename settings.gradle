@@ -1,1 +1,1 @@
-include ':app', ':libutils', ':libroom', ':libres', ':libnet', ':libimageloader', ':libcommonui', ':libcommon', ':libarouter'
+include ':app', ':libres', ':libcommonui', ':libcommon'
