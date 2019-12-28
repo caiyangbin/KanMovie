@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nv"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.luuren.example.main.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_motionFragment"
+            app:destination="@id/motionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/motionFragment"
+        android:name="com.luuren.example.motionlayout.MotionFragment"
+        android:label="motion_fragment"
+        tools:layout="@layout/motion_fragment" />
+</navigation>

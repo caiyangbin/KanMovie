@@ -1,1 +1,2 @@
-include ':app', ':libres', ':libcommonui', ':libcommon'
+include ':app', ':libres', ':libcommonui', ':libcommon', ':example'
+rootProject.name='KanMovie'

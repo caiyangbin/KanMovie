@@ -1,8 +1,7 @@
-package com.luuren.libnet.app
+package com.luuren.libcommon.net
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.luuren.libcommon.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -21,7 +20,6 @@ fun getRetrofit(
     .baseUrl(API_BASE_URL)
     .client(okHttpClient)
     .addConverterFactory(GsonConverterFactory.create(dateGson))
-    .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .build()
 
 fun getOkHttpClient(
@@ -30,9 +28,9 @@ fun getOkHttpClient(
     .addInterceptor(customInterceptor)
     .addInterceptor(initLogInterceptor())
     .retryOnConnectionFailure(true)//失败重试一次 比较关键
-    .connectTimeout(10, TimeUnit.SECONDS)
-    .readTimeout(10, TimeUnit.SECONDS)
-    .writeTimeout(10, TimeUnit.SECONDS)
+    .connectTimeout(60, TimeUnit.SECONDS)
+    .readTimeout(60, TimeUnit.SECONDS)
+    .writeTimeout(60, TimeUnit.SECONDS)
     .build()
 
 private val dateGson: Gson
@@ -67,7 +65,8 @@ class DefaultInterceptor : Interceptor {
             .addHeader(
                 "X-Forwarded-For",
                 "${random.nextInt(255)}.${random.nextInt(255)}.${random.nextInt(255)}.${random.nextInt(255)}"
-            ).build()
+            )
+            .build()
         return chain.proceed(newRequest)
     }
 }

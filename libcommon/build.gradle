@@ -44,7 +44,6 @@ dependencies {
     //网络请求
     api buildLibs.retrofit
     api buildLibs.gson_converter
-    api buildLibs.coroutines_adapter
     api buildLibs.logging_interceptor
     api buildLibs.gson
 
@@ -56,16 +55,23 @@ dependencies {
     api buildLibs.kotlin
     api buildLibs.anko_commons
     api buildLibs.anko_sqlite
+    api buildLibs.anko_coroutines
+    api buildLibs.anko_appcompat_coroutines
 
     //ui
     api buildLibs.appcompat
     api buildLibs.recyclerview
+    api buildLibs.constraintlayout
+    api buildLibs.legacy_support_v4
 
     //jetpack
     api buildLibs.core_ktx
     api buildLibs.lifecycle_viewmodel_ktx
+    api buildLibs.lifecycle_extensions
     api buildLibs.room_runtime
     api buildLibs.room_ktx
+    api buildLibs.navigation_fragment_ktx
+    api buildLibs.navigation_ui_ktx
     kapt buildLibs.room_compiler
 
     //koin
