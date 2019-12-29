@@ -21,9 +21,7 @@ class HomeFragment : Fragment() {
     }
 
     private  val viewModel by inject<HomeViewModel>()
-    private  val container by inject<NavController>{
-        parametersOf(toMotion)
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +34,8 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         toMotion.onClick {
-            container.navigate(R.id.action_homeFragment_to_motionFragment)
+            Navigation.findNavController(toMotion)
+                .navigate(R.id.action_homeFragment_to_motionFragment)
         }
 
     }

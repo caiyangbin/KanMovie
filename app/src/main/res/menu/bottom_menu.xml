@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/heatMovieFragment"
+        android:icon="@drawable/selector_heat"
+        android:title="@string/heat_movie" />
+    <item
+        android:id="@+id/searchMovieFragment"
+        android:icon="@drawable/selector_search"
+        android:title="@string/search_movie" />
+    <item
+        android:id="@+id/myInfoFragment"
+        android:icon="@drawable/selector_my"
+        android:title="@string/my" />
+</menu>

@@ -2,6 +2,7 @@ package com.luuren.kanmovie.common
 
 import android.os.Build
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.transition.TransitionInflater
 
@@ -15,4 +16,19 @@ abstract class BaseFragment : Fragment() {
                 .inflateTransition(android.R.transition.move)
         }
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        requireActivity().apply {
+            onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+                if (isFinish()) {
+                    finish()
+                } else {
+                    onBackPressed()
+                }
+            }
+        }
+    }
+
+    abstract fun isFinish(): Boolean
 }

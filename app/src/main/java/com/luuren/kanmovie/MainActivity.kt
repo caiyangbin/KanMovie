@@ -1,9 +1,11 @@
-package com.luuren.kanmovie.ui.main
+package com.luuren.kanmovie
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.luuren.kanmovie.R
 
+/**
+ * 容器activity，也是项目唯一的activity
+ */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,7 +8,7 @@ import com.luuren.kanmovie.data.DiscoverMovieRepository
 import com.luuren.kanmovie.data.DiscoverTvList
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val rep: DiscoverMovieRepository) : ViewModel() {
+class MyInfoViewModel(private val rep: DiscoverMovieRepository) : ViewModel() {
 
     val discoverMovieListLiveData: MutableLiveData<DiscoverMovieList> by lazy {
         MutableLiveData<DiscoverMovieList>()

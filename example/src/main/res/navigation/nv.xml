@@ -18,5 +18,7 @@
         android:id="@+id/motionFragment"
         android:name="com.luuren.example.motionlayout.MotionFragment"
         android:label="motion_fragment"
-        tools:layout="@layout/motion_fragment" />
+        tools:layout="@layout/motion_fragment" >
+
+    </fragment>
 </navigation>

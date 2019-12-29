@@ -3,7 +3,10 @@ package com.luuren.kanmovie.di
 import com.luuren.kanmovie.Constants
 import com.luuren.kanmovie.data.Api
 import com.luuren.kanmovie.data.DiscoverMovieRepository
-import com.luuren.kanmovie.viewmodles.MainViewModel
+import com.luuren.kanmovie.viewmodles.HeatMovieViewModel
+import com.luuren.kanmovie.viewmodles.MyInfoViewModel
+import com.luuren.kanmovie.viewmodles.SearchMovieViewModel
+import com.luuren.kanmovie.viewmodles.SplashViewModel
 import com.luuren.libcommon.net.getOkHttpClient
 import com.luuren.libcommon.net.getRetrofit
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -21,5 +24,8 @@ val appModule = module {
     single { DiscoverMovieRepository.getInstance(get()) }
 
     //viewModel
-    viewModel { MainViewModel(get()) }
+    viewModel { MyInfoViewModel(get()) }
+    viewModel { HeatMovieViewModel() }
+    viewModel { SearchMovieViewModel() }
+    viewModel { SplashViewModel() }
 }
